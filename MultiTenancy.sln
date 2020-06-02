@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{6986CC49-F1CB-47AC-B17D-6E4C5531C9CA}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{EF1E4929-6E7C-4F74-BF2E-8CAB89F0E629}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBaseMaintenance", "DataBaseMaintenance", "{86482FD7-D23F-43FD-80B3-030C30B40983}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,18 @@ Global
 		{6986CC49-F1CB-47AC-B17D-6E4C5531C9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6986CC49-F1CB-47AC-B17D-6E4C5531C9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6986CC49-F1CB-47AC-B17D-6E4C5531C9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1E4929-6E7C-4F74-BF2E-8CAB89F0E629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF1E4929-6E7C-4F74-BF2E-8CAB89F0E629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF1E4929-6E7C-4F74-BF2E-8CAB89F0E629}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EF1E4929-6E7C-4F74-BF2E-8CAB89F0E629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF1E4929-6E7C-4F74-BF2E-8CAB89F0E629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1E4929-6E7C-4F74-BF2E-8CAB89F0E629}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF1E4929-6E7C-4F74-BF2E-8CAB89F0E629} = {86482FD7-D23F-43FD-80B3-030C30B40983}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {81E88CEC-D718-478D-982A-48AD3DD7570D}
