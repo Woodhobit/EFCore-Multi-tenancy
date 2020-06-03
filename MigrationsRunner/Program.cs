@@ -2,6 +2,7 @@
 using DbUp.Engine;
 using DbUp.Helpers;
 using DbUp.ScriptProviders;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 
@@ -9,22 +10,18 @@ namespace MigrationsRunner
 {
     class Program
     {
-        private static string connectionString = "Data Source=.;Initial Catalog=DemoDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private static string connectionString = null;
         private static string scriptsPath = @"./scripts/";
         private static string migrationScripts = "Migrations";
         private static string preDeploymentScripts = "PreDeployment";
         private static string postDeploymentScripts = "PostDeployment";
         private static string schema = "dbo";
         private static string table = "MigrationsJournal";
+        private static string connectionStringSecretName = "connectionString";
 
         static int Main(string[] args)
         {
-            // if parameters are not passed, use the default parameters
-            if (args.Length == 2)
-            {
-                connectionString = args[0];
-                scriptsPath = args[1];
-            }
+            InitVariables(args);
 
             // Check if the target database exist if not it will create the database and then run scripts
             EnsureDatabase.For.SqlDatabase(connectionString);
@@ -122,6 +119,29 @@ namespace MigrationsRunner
             }
 
             return builder.Build().PerformUpgrade();
+        }
+
+        private static void SetConectionSctring()
+        {
+            var config = new ConfigurationBuilder()
+                .AddUserSecrets<Program>()
+                .Build();
+
+            connectionString = config[connectionStringSecretName];
+        }
+
+        private static void InitVariables(string[] args)
+        {
+            // if parameters are not passed, use the default parameters
+            if (args.Length == 2)
+            {
+                connectionString = args[0];
+                scriptsPath = args[1];
+            }
+            else
+            {
+                SetConectionSctring();
+            }
         }
     }
 }
