@@ -62,7 +62,17 @@
     <Folder Include="Scripts\PostDeployment" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Scripts\Migrations\2020-06-02 18-50 Add Profiles table.sql" />
-    <Build Include="Scripts\Migrations\2020-06-02 18-52 Create Index on Profiles table.sql" />
+    <Build Include="Scripts\Migrations\2020-06-02 18-50 Add Profiles table.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Build>
+    <Build Include="Scripts\Migrations\2020-06-02 18-52 Create Index on Profiles table.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Build>
+    <Build Include="Scripts\PreDeployment\2020-06-02 18-50 Add Profiles1 table.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Build>
+    <Build Include="Scripts\PostDeployment\2020-06-02 18-50 Add Profiles1 table.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Build>
   </ItemGroup>
 </Project>
