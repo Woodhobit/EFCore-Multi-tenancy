@@ -5,15 +5,17 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{A7145A9C-FB63-4805-85D0-60108263853D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{A59F0713-150E-4BAC-9C70-472AFEBA31A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{A59F0713-150E-4BAC-9C70-472AFEBA31A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{6986CC49-F1CB-47AC-B17D-6E4C5531C9CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{6986CC49-F1CB-47AC-B17D-6E4C5531C9CA}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{EF1E4929-6E7C-4F74-BF2E-8CAB89F0E629}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBaseMaintenance", "DataBaseMaintenance", "{86482FD7-D23F-43FD-80B3-030C30B40983}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationsRunner", "MigrationsRunner\MigrationsRunner.csproj", "{5478375F-7791-49CB-ABC9-24D4EABDF313}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationsRunner", "MigrationsRunner\MigrationsRunner.csproj", "{5478375F-7791-49CB-ABC9-24D4EABDF313}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infastructure\Infrastructure.csproj", "{9AD6521E-6F50-44A0-80D5-9BA019EDADCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{5478375F-7791-49CB-ABC9-24D4EABDF313}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5478375F-7791-49CB-ABC9-24D4EABDF313}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5478375F-7791-49CB-ABC9-24D4EABDF313}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD6521E-6F50-44A0-80D5-9BA019EDADCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD6521E-6F50-44A0-80D5-9BA019EDADCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AD6521E-6F50-44A0-80D5-9BA019EDADCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AD6521E-6F50-44A0-80D5-9BA019EDADCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
