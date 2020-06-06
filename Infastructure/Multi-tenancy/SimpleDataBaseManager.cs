@@ -11,13 +11,13 @@ namespace Infrastructure.Multi_tenancy
         private readonly Dictionary<string, string> tenantConfigurationDictionary = new Dictionary<string, string>
         {
             {
-                "defaultTenant", "UseServiceDB"
+                "defaultTenant", "DemoDB"
             },
             {
-                "tenant-1", "UseServiceDB-ten1"
+                "tenant-1", "DemoDB-ten1"
             },
                         {
-                "tenant-2", "UseServiceDB-ten2"
+                "tenant-2", "DemoDB-ten2"
             }
 
         };

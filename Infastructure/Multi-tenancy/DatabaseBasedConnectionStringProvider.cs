@@ -4,12 +4,12 @@ using Microsoft.Extensions.Options;
 
 namespace Infrastructure.Multi_tenancy
 {
-    class DatabaseBasedConnectionStringProvider : IConnectionStringProvider
+    public class DatabaseBasedConnectionStringProvider : IConnectionStringProvider
     {
         private readonly ITenantProvider tenantProvider;
         private readonly IDataBaseManager dataBaseManager;
         private readonly DatabaseOptions options;
-        private string databaseNamePlaceholder = "{tenantName}";
+        private string databaseNamePlaceholder = "{tenantDbName}";
 
         public DatabaseBasedConnectionStringProvider(
             ITenantProvider tenantProvider, 

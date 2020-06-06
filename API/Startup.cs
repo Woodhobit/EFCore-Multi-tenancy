@@ -1,10 +1,14 @@
+using API.OperationFilters;
 using BLL.Manager;
 using DAL.DBContext;
 using DAL.Model;
 using DAL.Repository;
+using Infrastructure.Configuration;
+using Infrastructure.Multi_tenancy;
+using Infrastructure.Multi_tenancy.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,8 +28,14 @@ namespace API
         {
             services.AddControllers();
 
-            services.AddDbContext<ApplicationContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("UseServiceDB")));
+            services.Configure<DatabaseOptions>(Configuration.GetSection("Database"));
+
+            services.AddDbContext<ApplicationContext>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<ITenantProvider, HttpTenantProvider>();
+            services.AddScoped<IDataBaseManager, SimpleDataBaseManager>();
+            services.AddScoped<IConnectionStringProvider, DatabaseBasedConnectionStringProvider>();
 
             services.AddScoped<IRepository<UserProfile>, Repository<UserProfile>>();
             services.AddScoped<IUserProfileManager, UserProfileManager>();
@@ -38,6 +48,8 @@ namespace API
                     Version = "v1",
                     Description = "Demo: Multi-tenancy",
                 });
+
+                c.OperationFilter<TenantHeaderOperationFilter>();
             });
         }
 

@@ -5,7 +5,7 @@ namespace Infrastructure.Multi_tenancy
 {
     public class HttpTenantProvider : ITenantProvider
     {
-        private string tenantHeaderName = "Tenant";
+        private string tenantHeaderName = "tenantid";
         private string defaultTenantId = "defaultTenant";
         private readonly string tenantId;
 

@@ -1,4 +1,5 @@
 ﻿using DAL.Model;
+using Infrastructure.Multi_tenancy.Contracts;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -8,10 +9,18 @@ namespace DAL.DBContext
     {
         public DbSet<UserProfile> UserProfiles { get; set; }
 
-        public ApplicationContext(DbContextOptions<ApplicationContext> options)
-            : base(options)
+        private readonly IConnectionStringProvider connectionStringProvider;
+
+        public ApplicationContext(IConnectionStringProvider connectionStringProvider) : base()
         {
-           // Database.EnsureCreated();
+            this.connectionStringProvider = connectionStringProvider;
+            // Database.EnsureCreated();
+
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(this.connectionStringProvider.GetConnectionString());
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
