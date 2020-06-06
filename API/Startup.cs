@@ -33,7 +33,7 @@ namespace API
             services.AddDbContext<ApplicationContext>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<ITenantProvider, HttpTenantProvider>();
+            services.AddScoped<ITenantProvider, HttpHeaderTenantProvider>();
             services.AddScoped<IDataBaseManager, SimpleDataBaseManager>();
             services.AddScoped<IConnectionStringProvider, DatabaseBasedConnectionStringProvider>();
 

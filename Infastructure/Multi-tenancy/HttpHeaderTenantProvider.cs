@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Http;
 
 namespace Infrastructure.Multi_tenancy
 {
-    public class HttpTenantProvider : ITenantProvider
+    public class HttpHeaderTenantProvider : ITenantProvider
     {
         private string tenantHeaderName = "tenantid";
         private string defaultTenantId = "defaultTenant";
         private readonly string tenantId;
 
-        public HttpTenantProvider(IHttpContextAccessor accessor)
+        public HttpHeaderTenantProvider(IHttpContextAccessor accessor)
         {
             this.tenantId = accessor.HttpContext.Request.Headers[tenantHeaderName];
 
